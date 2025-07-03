@@ -53,6 +53,28 @@ const Navigation = ({ darkMode }) => {
     { name: 'Contact', id: 'contact' }
   ];
 
+  const handleResumeClick = (e) => {
+    e.preventDefault();
+    setIsMobileMenuOpen(false);
+    
+    // Check if we're already on the resume page
+    const resumeElement = document.getElementById('resume');
+    if (resumeElement) {
+      // If we're already on the resume page, just scroll to it
+      resumeElement.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      // If we're on a different page, navigate to resume page
+      navigate('/resume');
+      // Add a small delay to ensure the page loads before scrolling
+      setTimeout(() => {
+        const element = document.getElementById('resume');
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  };
+
   return (
     <nav className={`navigation ${isScrolled ? 'scrolled' : ''}`}>
       <div className="nav-container">
@@ -72,7 +94,11 @@ const Navigation = ({ darkMode }) => {
             </li>
           ))}
           <li className="nav-item">
-            <Link to="/resume" className="nav-link resume-link">
+            <Link 
+              to="/resume" 
+              className="nav-link resume-link"
+              onClick={handleResumeClick}
+            >
               <i className="fas fa-file-pdf"></i>
               Resume
             </Link>
@@ -93,4 +119,4 @@ const Navigation = ({ darkMode }) => {
   );
 };
 
-export default Navigation; 
+export default Navigation;

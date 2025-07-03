@@ -234,6 +234,26 @@
 
   .typing-container {
     min-width: 150px;
+    position: relative;
+    display: inline-block;
+    justify-content: center;
+  }
+
+  .typing-text {
+    display: inline-block;
+    text-align: center;
+    min-width: auto;
+  }
+
+  .cursor {
+    position: relative;
+    display: inline;
+    margin-left: 2px;
+    top: 0;
+    left: auto;
+    animation: blink 1s infinite;
+    color: var(--accent-primary);
+    font-weight: 400;
   }
 
   .hero-description {

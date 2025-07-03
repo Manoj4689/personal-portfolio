@@ -2,6 +2,7 @@
   background: var(--bg-primary);
   min-height: 100vh;
   position: relative;
+  padding-top: 120px;
 }
 
 .resume::before {
@@ -295,6 +296,25 @@
     overflow-x: hidden;
   }
 
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    padding: 0 1rem;
+    line-height: 1.2;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    padding: 0 1rem;
+  }
+
   .resume-container {
     min-height: 600px;
     margin: 0 0.5rem;
@@ -308,6 +328,7 @@
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+    margin-bottom: 2rem;
   }
 
   .resume-actions .btn-primary,
@@ -423,6 +444,20 @@
 }
 
 @media (max-width: 480px) {
+  .resume {
+    padding-top: 100px;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+    padding: 0 0.5rem;
+  }
+
+  .section-subtitle {
+    font-size: 0.9rem;
+    padding: 0 0.5rem;
+  }
+
   .resume-container {
     min-height: 500px;
     margin: 0 0.25rem;

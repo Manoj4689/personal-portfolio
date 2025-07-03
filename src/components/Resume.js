@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Resume.css';
 
@@ -16,6 +16,18 @@ const Resume = () => {
     `https://mozilla.github.io/pdf.js/web/viewer.html?file=${encodeURIComponent(window.location.origin + process.env.PUBLIC_URL + '/resume.pdf')}`
   ];
   const [currentViewerIndex, setCurrentViewerIndex] = useState(0);
+
+  // Scroll to resume section on component mount
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const resumeElement = document.getElementById('resume');
+      if (resumeElement) {
+        resumeElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleDownload = () => {
     const link = document.createElement('a');
