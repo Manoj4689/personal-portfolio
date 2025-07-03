@@ -2,7 +2,7 @@
   "name": "personal-portfolio",
   "version": "1.0.0",
   "description": "A modern personal portfolio built with React",
-  "homepage": "https://manoj4689.github.io/personal-portfolio",
+  "homepage": "https://Manoj4689.github.io/personal-portfolio",
   "private": true,
   "dependencies": {
     "react": "^18.2.0",
