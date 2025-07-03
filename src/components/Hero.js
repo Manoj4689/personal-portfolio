@@ -117,9 +117,11 @@ const Hero = () => {
           <div className="hero-image slide-in-right">
             <div className="profile-card">
               <div className="profile-image">
-                <div className="profile-placeholder">
-                  <i className="fas fa-user"></i>
-                </div>
+                <img 
+                  src="/personal-portfolio/about/profile.jpg" 
+                  alt="Manoj Kumar Eede"
+                  className="profile-photo"
+                />
               </div>
               <div className="social-links">
                 <a href="https://github.com/Manoj4689" target="_blank" rel="noopener noreferrer">
