@@ -366,14 +366,27 @@
 
 /* Mobile Styles */
 @media (max-width: 768px) {
+  .education {
+    overflow-x: hidden;
+  }
+
   .education-timeline-card {
     padding: 2rem;
+    margin: 0 0.5rem;
   }
 
   .timeline-header h3 {
     font-size: 1.6rem;
     flex-direction: column;
     gap: 0.5rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .timeline-header p {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
   }
 
   .timeline-connector {
@@ -388,6 +401,8 @@
 
   .education-content {
     padding: 1.5rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 
   .education-header {
@@ -400,6 +415,26 @@
     flex-direction: column;
     text-align: center;
     gap: 1rem;
+    width: 100%;
+  }
+
+  .institution-details h4 {
+    font-size: 1.2rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    line-height: 1.3;
+  }
+
+  .institution-details h5 {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .institution-location {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    justify-content: center;
   }
 
   .education-meta {
@@ -407,6 +442,18 @@
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .period-badge {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .cgpa-badge {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 
   .institution-logo {
@@ -414,31 +461,55 @@
     height: 60px;
   }
 
-  .institution-details h4 {
-    font-size: 1.2rem;
-  }
-
   .education-details {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
 
+  .education-description {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  .highlights-list li {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .coursework-tags {
+    justify-content: center;
+  }
+
+  .course-tag {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    text-align: center;
+  }
+
   .cta-content {
     padding: 3rem 1.5rem;
+    margin: 0 0.5rem;
   }
 
   .cta-content h3 {
     font-size: 1.6rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 
   .cta-content p {
     font-size: 1rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
   }
 }
 
 @media (max-width: 480px) {
   .education-timeline-card {
     padding: 1.5rem;
+    margin: 0 0.25rem;
   }
 
   .timeline-connector {
@@ -459,12 +530,34 @@
     height: 50px;
   }
 
+  .institution-details h4 {
+    font-size: 1.1rem;
+    line-height: 1.2;
+  }
+
   .education-meta {
     flex-direction: column;
     gap: 0.5rem;
+    align-items: center;
   }
 
   .education-details {
     gap: 1rem;
+  }
+
+  .cta-content {
+    padding: 2rem 1rem;
+    margin: 0 0.25rem;
+  }
+
+  /* Fix for very long words */
+  .institution-details h4,
+  .institution-details h5,
+  .institution-location,
+  .education-description,
+  .highlights-list li,
+  .course-tag {
+    word-break: break-word;
+    overflow-wrap: anywhere;
   }
 } 

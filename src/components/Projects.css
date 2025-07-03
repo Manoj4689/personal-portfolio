@@ -271,6 +271,10 @@
 
 /* Mobile Styles */
 @media (max-width: 768px) {
+  .projects {
+    overflow-x: hidden;
+  }
+
   .featured-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
@@ -284,16 +288,8 @@
   .project-card {
     max-width: 400px;
     margin: 0 auto;
-  }
-
-  .filter-buttons {
-    justify-content: center;
-    gap: 0.5rem;
-  }
-
-  .filter-btn {
-    padding: 0.6rem 1rem;
-    font-size: 0.9rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 
   .project-content {
@@ -302,18 +298,58 @@
 
   .project-title {
     font-size: 1.2rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    line-height: 1.4;
+  }
+
+  .project-description {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  .filter-buttons {
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .filter-btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .project-tech {
+    justify-content: center;
+    gap: 0.4rem;
+  }
+
+  .tech-tag {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    text-align: center;
   }
 
   .cta-content {
     padding: 3rem 1.5rem;
+    margin: 0 0.5rem;
   }
 
   .cta-content h3 {
     font-size: 1.6rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 
   .cta-content p {
     font-size: 1rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
   }
 }
 
@@ -321,19 +357,32 @@
   .featured-grid,
   .projects-grid {
     grid-template-columns: 1fr;
+    margin: 0 0.25rem;
   }
 
   .project-card {
     max-width: 100%;
+    margin: 0 0.25rem;
+  }
+
+  .project-content {
+    padding: 1.2rem;
+  }
+
+  .project-title {
+    font-size: 1.1rem;
+    line-height: 1.3;
   }
 
   .filter-buttons {
     flex-direction: column;
     align-items: center;
+    gap: 0.5rem;
   }
 
   .filter-btn {
     width: 200px;
+    justify-content: center;
   }
 
   .project-image {
@@ -344,5 +393,19 @@
     width: 45px;
     height: 45px;
     font-size: 1rem;
+  }
+
+  .cta-content {
+    padding: 2rem 1rem;
+    margin: 0 0.25rem;
+  }
+
+  /* Fix for very long words */
+  .project-title,
+  .project-description,
+  .tech-tag,
+  .filter-btn {
+    word-break: break-word;
+    overflow-wrap: anywhere;
   }
 } 

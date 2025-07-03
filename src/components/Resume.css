@@ -291,8 +291,13 @@
 
 /* Mobile Styles */
 @media (max-width: 768px) {
+  .resume {
+    overflow-x: hidden;
+  }
+
   .resume-container {
     min-height: 600px;
+    margin: 0 0.5rem;
   }
 
   .resume-viewer {
@@ -302,6 +307,7 @@
   .resume-actions {
     flex-direction: column;
     align-items: center;
+    gap: 1rem;
   }
 
   .resume-actions .btn-primary,
@@ -318,12 +324,17 @@
   .nav-breadcrumbs > span {
     margin-right: 0;
     margin-bottom: 0.5rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    text-align: center;
   }
 
   .nav-breadcrumb {
     width: 160px;
     justify-content: center;
     font-size: 0.85rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 
   .summary-grid {
@@ -333,34 +344,102 @@
 
   .summary-item {
     padding: 1.5rem;
+    margin: 0 0.5rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .summary-item h4 {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .education-item h5 {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.3;
+  }
+
+  .education-item p {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  .certifications-list li {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 
   .skills-summary {
     justify-content: center;
   }
 
+  .skill-pill {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    text-align: center;
+  }
+
+  .language-item {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
   .cta-card {
     padding: 2rem;
-    margin: 0 1rem;
+    margin: 0 0.5rem;
   }
 
   .cta-card h3 {
     font-size: 1.5rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 
   .cta-card p {
     font-size: 1rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  .fallback-content {
+    padding: 2rem 1rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .fallback-content h3 {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .fallback-content p {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
   }
 }
 
 @media (max-width: 480px) {
   .resume-container {
     min-height: 500px;
-    margin: 0 0.5rem;
+    margin: 0 0.25rem;
   }
 
   .resume-viewer {
     height: 500px;
+  }
+
+  .summary-item {
+    padding: 1rem;
+    margin: 0 0.25rem;
+  }
+
+  .cta-card {
+    padding: 1.5rem;
+    margin: 0 0.25rem;
   }
 
   .fallback-content {
@@ -373,6 +452,22 @@
 
   .fallback-content h3 {
     font-size: 1.5rem;
+  }
+
+  .nav-breadcrumb {
+    width: 140px;
+    font-size: 0.8rem;
+  }
+
+  /* Fix for very long words */
+  .summary-item h4,
+  .education-item h5,
+  .education-item p,
+  .certifications-list li,
+  .skill-pill,
+  .language-item {
+    word-break: break-word;
+    overflow-wrap: anywhere;
   }
 }
 
