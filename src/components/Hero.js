@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Hero.css';
+import { trackButtonClick } from '../utils/analytics';
 
 const Hero = () => {
   const [displayText, setDisplayText] = useState('');
@@ -72,6 +73,20 @@ const Hero = () => {
     }
   };
 
+  const handleViewWorkClick = () => {
+    trackButtonClick('View My Work', 'Hero');
+    scrollToSection('projects');
+  };
+
+  const handleGetInTouchClick = () => {
+    trackButtonClick('Get In Touch', 'Hero');
+    scrollToSection('contact');
+  };
+
+  const handleSocialClick = (platform, url) => {
+    trackButtonClick(`${platform} Social Link`, 'Hero');
+  };
+
   return (
     <section id="hero" className="hero">
       <div className="hero-background">
@@ -98,14 +113,14 @@ const Hero = () => {
             
             <div className="hero-buttons">
               <button 
-                onClick={() => scrollToSection('projects')}
+                onClick={handleViewWorkClick}
                 className="btn-primary"
               >
                 <i className="fas fa-code"></i>
                 View My Work
               </button>
               <button 
-                onClick={() => scrollToSection('contact')}
+                onClick={handleGetInTouchClick}
                 className="btn-secondary"
               >
                 <i className="fas fa-envelope"></i>
@@ -124,13 +139,13 @@ const Hero = () => {
                 />
               </div>
               <div className="social-links">
-                <a href="https://github.com/Manoj4689" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/Manoj4689" target="_blank" rel="noopener noreferrer" onClick={() => handleSocialClick('GitHub', 'https://github.com/Manoj4689')}>
                   <i className="fab fa-github"></i>
                 </a>
-                <a href="https://linkedin.com/in/manojkumareede" target="_blank" rel="noopener noreferrer">
+                <a href="https://linkedin.com/in/manojkumareede" target="_blank" rel="noopener noreferrer" onClick={() => handleSocialClick('LinkedIn', 'https://linkedin.com/in/manojkumareede')}>
                   <i className="fab fa-linkedin"></i>
                 </a>
-                <a href="mailto:manojkumar.ede@gmail.com">
+                <a href="mailto:manojkumar.ede@gmail.com" onClick={() => handleSocialClick('Email', 'mailto:manojkumar.ede@gmail.com')}>
                   <i className="fas fa-envelope"></i>
                 </a>
               </div>

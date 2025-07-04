@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import './App.css';
 
+// Google Analytics
+import { initGA, trackPageView } from './utils/analytics';
+
 // Components
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
@@ -15,54 +18,52 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ThemeToggle from './components/ThemeToggle';
 
-// Component to handle scrolling to sections based on URL
+// Component to handle scrolling to sections based on URL and track page views
 const ScrollToSection = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const scrollToElement = (elementId) => {
-      const element = document.getElementById(elementId);
-      if (element) {
-        setTimeout(() => {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 100);
-      }
+    // Track page view for Google Analytics
+    const pageTitles = {
+      '/': 'Home',
+      '/home': 'Home',
+      '/about': 'About',
+      '/experience': 'Experience', 
+      '/education': 'Education',
+      '/certifications': 'Certifications',
+      '/projects': 'Projects',
+      '/resume': 'Resume',
+      '/contact': 'Contact'
     };
 
-    // Handle section scrolling for main page routes
-    if (location.pathname === '/') {
-      if (location.hash) {
-        const sectionId = location.hash.substring(1); // Remove the #
-        scrollToElement(sectionId);
-      }
-    } else {
-      // Handle direct section routes
-      const sectionRoutes = {
-        '/home': 'hero',
-        '/about': 'about',
-        '/experience': 'experience',
-        '/education': 'education',
-        '/certifications': 'certifications',
-        '/projects': 'projects',
-        '/contact': 'contact'
-      };
-      
-      const sectionId = sectionRoutes[location.pathname];
-      if (sectionId) {
-        scrollToElement(sectionId);
-      }
+    const pageTitle = pageTitles[location.pathname] || 'Portfolio';
+    trackPageView(location.pathname, `${pageTitle} - Manoj Kumar Eede Portfolio`);
+
+    // Scroll to section logic (existing)
+    const pathToSectionMap = {
+      '/': 'hero',
+      '/home': 'hero',
+      '/about': 'about',
+      '/experience': 'experience',
+      '/education': 'education', 
+      '/certifications': 'certifications',
+      '/projects': 'projects',
+      '/resume': 'resume',
+      '/contact': 'contact'
+    };
+
+    const sectionId = pathToSectionMap[location.pathname];
+    
+    if (sectionId) {
+      const timer = setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+
+      return () => clearTimeout(timer);
     }
-
-    // Handle hash changes for direct hash navigation (e.g., #contact)
-    const handleHashChange = () => {
-      if (window.location.hash) {
-        const sectionId = window.location.hash.substring(1);
-        scrollToElement(sectionId);
-      }
-    };
-
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
   }, [location]);
 
   return null;
@@ -82,21 +83,18 @@ const HomePage = () => (
 );
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(() => {
+    const savedMode = localStorage.getItem('darkMode');
+    return savedMode ? JSON.parse(savedMode) : false;
+  });
 
+  // Initialize Google Analytics on app start
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    if (savedTheme) {
-      setDarkMode(savedTheme === 'dark');
-    } else {
-      setDarkMode(prefersDark);
-    }
+    initGA();
   }, []);
 
   useEffect(() => {
-    localStorage.setItem('theme', darkMode ? 'dark' : 'light');
+    localStorage.setItem('darkMode', JSON.stringify(darkMode));
     if (darkMode) {
       document.body.classList.add('dark-mode');
     } else {
@@ -104,7 +102,7 @@ function App() {
     }
   }, [darkMode]);
 
-  const toggleTheme = () => {
+  const toggleDarkMode = () => {
     setDarkMode(!darkMode);
   };
 
@@ -112,7 +110,7 @@ function App() {
     <Router>
       <div className={`App ${darkMode ? 'dark' : 'light'}`}>
         <Navigation darkMode={darkMode} />
-        <ThemeToggle darkMode={darkMode} toggleTheme={toggleTheme} />
+        <ThemeToggle darkMode={darkMode} toggleTheme={toggleDarkMode} />
         <ScrollToSection />
         
         <main>

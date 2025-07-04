@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Resume.css';
+import { trackDownload, trackButtonClick } from '../utils/analytics';
 
 const Resume = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -30,6 +31,9 @@ const Resume = () => {
   }, []);
 
   const handleDownload = () => {
+    trackDownload('Resume_ManojKumarEede.pdf', 'PDF');
+    trackButtonClick('Download Resume', 'Resume');
+    
     const link = document.createElement('a');
     link.href = resumeUrl;
     link.download = 'Resume_ManojKumarEede.pdf';
@@ -39,6 +43,8 @@ const Resume = () => {
   };
 
   const handleOpenNewTab = () => {
+    trackButtonClick('Open Resume in New Tab', 'Resume');
+    
     // Construct absolute URL to bypass React Router
     const absolutePdfUrl = `${window.location.protocol}//${window.location.host}${process.env.PUBLIC_URL}/resume.pdf`;
     
@@ -61,6 +67,7 @@ const Resume = () => {
   };
 
   const navigateToSection = (route) => {
+    trackButtonClick('Let\'s Connect', 'Resume CTA');
     navigate(route);
   };
 

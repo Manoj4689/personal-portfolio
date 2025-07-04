@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import emailjs from 'emailjs-com';
+import { useNavigate } from 'react-router-dom';
 import './Contact.css';
+import { trackFormSubmission, trackButtonClick, trackSocialClick } from '../utils/analytics';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +13,7 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
+  const navigate = useNavigate();
 
   // EmailJS configuration - reading from .env file
   const EMAILJS_SERVICE_ID = process.env.REACT_APP_EMAILJS_SERVICE_ID;
@@ -66,6 +69,9 @@ const Contact = () => {
     }
     
     try {
+      // Track form submission
+      trackFormSubmission('Contact Form');
+      
       // Prepare template parameters exactly as needed
       const templateParams = {
         from_name: formData.name,
@@ -131,6 +137,27 @@ const Contact = () => {
       setIsSubmitting(false);
       setTimeout(() => setSubmitStatus(null), 5000);
     }
+  };
+
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleNavigateToProjects = () => {
+    trackButtonClick('View My Projects', 'Contact CTA');
+    navigate('/projects');
+  };
+
+  const handleNavigateToResume = () => {
+    trackButtonClick('View My Resume', 'Contact CTA');
+    navigate('/resume');
+  };
+
+  const handleSocialClick = (platform) => {
+    trackSocialClick(platform, 'click');
   };
 
   const contactInfo = [
@@ -232,6 +259,7 @@ const Contact = () => {
                     className="social-link"
                     style={{animationDelay: `${index * 0.1}s`}}
                     title={social.name}
+                    onClick={() => handleSocialClick(social.name)}
                   >
                     <i className={social.icon}></i>
                     <span>{social.name}</span>
@@ -333,11 +361,19 @@ const Contact = () => {
             <h3>Ready to discuss opportunities?</h3>
             <p>Whether it's a full-time role, consulting opportunity, or networking - let's talk!</p>
             <div className="cta-buttons">
-              <a href="mailto:manojkumar.ede@gmail.com" className="btn-primary">
+              <a 
+                href="mailto:manojkumar.ede@gmail.com" 
+                className="btn-primary"
+                onClick={() => trackButtonClick('Email Me', 'Contact CTA')}
+              >
                 <i className="fas fa-envelope"></i>
                 Email Me
               </a>
-              <a href="tel:+918688640213" className="btn-secondary">
+              <a 
+                href="tel:+918688640213" 
+                className="btn-secondary"
+                onClick={() => trackButtonClick('Call Me', 'Contact CTA')}
+              >
                 <i className="fas fa-phone"></i>
                 Call Me
               </a>
