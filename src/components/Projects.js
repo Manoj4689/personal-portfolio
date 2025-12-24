@@ -1,21 +1,30 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import './Projects.css';
 
 const Projects = () => {
   const [filter, setFilter] = useState('featured');
-  const navigate = useNavigate();
 
   const projects = [
     {
       id: 1,
+      title: "FinGen - A Personal Investment Assistant",
+      description: "Designed and built a full-stack financial analysis platform for Indian markets, delivering AI-driven stock insights, sentiment analysis, and portfolio tracking.",
+      image: "/personal-portfolio/projects/FinGen.png",
+      technologies: ["Python", "AI Agents", "Web Scraping", "Sentiment Analysis", "Transformers", "Supabase", "Github Actions"],
+      category: "ai",
+      github: "https://github.com/Manoj4689",
+      live: "https://github.com/Manoj4689",
+      featured: true
+    },
+    {
+      id: 2,
       title: "A Soft Computing Approach to Find Hardware Reliability",
       description: "Developed a novel model to assess k-to-r out of n hardware system reliability by adapting the Universal Generating Function (UGF) method and Genetic Algorithms for optimization. This research project explored innovative approaches to improve system reliability analysis.",
       image: "/personal-portfolio/projects/Soft_computing.png",
       technologies: ["Python", "MATLAB", "Genetic Algorithms", "Optimization", "UGF Method", "Reliability Analysis"],
       category: "research",
-      github: "https://github.com/Manoj4689",
-      live: "#",
+      github: "https://github.com/Manoj4689/Genetic-algorithms",
+      live: "https://github.com/Manoj4689/Genetic-algorithms",
       featured: true
     }
   ];
@@ -89,18 +98,6 @@ const Projects = () => {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* CTA Section */}
-        <div className="projects-cta">
-          <div className="cta-content">
-            <h3>Have a project in mind?</h3>
-            <p>Let's work together to bring your ideas to life!</p>
-            <button onClick={() => navigate('/contact')} className="btn-primary">
-              <i className="fas fa-rocket"></i>
-              Start a Project
-            </button>
-          </div>
         </div>
       </div>
     </section>

@@ -1,20 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import './Resume.css';
 import { trackDownload, trackButtonClick } from '../utils/analytics';
 
 const Resume = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [showFallback, setShowFallback] = useState(false);
-  const navigate = useNavigate();
   
   // Replace this with your actual resume PDF URL
-  const resumeUrl = `${process.env.PUBLIC_URL}/resume.pdf`;
+  const resumeUrl = `${process.env.PUBLIC_URL}/Manoj_Kumar_Eede_Resume.pdf`;
   // Try multiple PDF viewers
   const pdfViewers = [
     resumeUrl, // Direct PDF
-    `https://docs.google.com/viewer?url=${encodeURIComponent(window.location.origin + process.env.PUBLIC_URL + '/resume.pdf')}&embedded=true`,
-    `https://mozilla.github.io/pdf.js/web/viewer.html?file=${encodeURIComponent(window.location.origin + process.env.PUBLIC_URL + '/resume.pdf')}`
+    `https://docs.google.com/viewer?url=${encodeURIComponent(window.location.origin + process.env.PUBLIC_URL + '/Manoj_Kumar_Eede_Resume.pdf')}&embedded=true`,
+    `https://mozilla.github.io/pdf.js/web/viewer.html?file=${encodeURIComponent(window.location.origin + process.env.PUBLIC_URL + '/Manoj_Kumar_Eede_Resume.pdf')}`
   ];
   const [currentViewerIndex, setCurrentViewerIndex] = useState(0);
 
@@ -46,7 +44,7 @@ const Resume = () => {
     trackButtonClick('Open Resume in New Tab', 'Resume');
     
     // Construct absolute URL to bypass React Router
-    const absolutePdfUrl = `${window.location.protocol}//${window.location.host}${process.env.PUBLIC_URL}/resume.pdf`;
+    const absolutePdfUrl = `${window.location.protocol}//${window.location.host}${process.env.PUBLIC_URL}/Manoj_Kumar_Eede_Resume.pdf`;
     
     // Use window.open with absolute URL
     window.open(absolutePdfUrl, '_blank', 'noopener,noreferrer');
@@ -64,11 +62,6 @@ const Resume = () => {
     } else {
       setShowFallback(true);
     }
-  };
-
-  const navigateToSection = (route) => {
-    trackButtonClick('Let\'s Connect', 'Resume CTA');
-    navigate(route);
   };
 
   const scrollToSection = (sectionId) => {
@@ -136,19 +129,6 @@ const Resume = () => {
             </div>
           )}
         </div>
-
-
-        <div className="resume-cta">
-          <div className="cta-card">
-            <h3>Interested in my background?</h3>
-            <p>Let's discuss how my experience can contribute to your team's success.</p>
-            <button onClick={() => navigateToSection('/contact')} className="btn-primary">
-              <i className="fas fa-handshake"></i>
-              Let's Connect
-            </button>
-          </div>
-        </div>
-
       </div>
     </section>
   );

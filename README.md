@@ -11,7 +11,7 @@ This is the personal portfolio of **Manoj Kumar Eede**, Member of Technical Staf
 - **GitHub**: [github.com/Manoj4689](https://github.com/Manoj4689)
 - **LinkedIn**: [linkedin.com/in/manojkumareede](https://linkedin.com/in/manojkumareede)
 - **Codeforces**: [codeforces.com/profile/codehacker4689](https://codeforces.com/profile/codehacker4689)
-- **Email**: manojkumar.ede@gmail.com
+- **Email**: manojkumareede@gmail.com
 
 ## 🌟 Features
 
@@ -123,7 +123,7 @@ This project is open source and available under the [MIT License](LICENSE).
 ## 📞 Contact
 
 **Manoj Kumar Eede**
-- Email: manojkumar.ede@gmail.com
+- Email: manojkumareede@gmail.com
 - LinkedIn: [linkedin.com/in/manojkumareede](https://linkedin.com/in/manojkumareede)
 - GitHub: [github.com/Manoj4689](https://github.com/Manoj4689)
 

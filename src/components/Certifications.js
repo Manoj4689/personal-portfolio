@@ -1,9 +1,7 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import './Certifications.css';
 
 const Certifications = () => {
-  const navigate = useNavigate();
 
   const certifications = [
     {
@@ -150,19 +148,6 @@ const Certifications = () => {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-
-
-        {/* CTA Section */}
-        <div className="certifications-cta">
-          <div className="cta-content">
-            <h3>Ready to leverage expertise?</h3>
-            <p>Let's discuss how my certified skills can contribute to your next project!</p>
-            <button onClick={() => navigate('/contact')} className="btn-primary">
-              <i className="fas fa-handshake"></i>
-              Start Collaboration
-            </button>
           </div>
         </div>
       </div>

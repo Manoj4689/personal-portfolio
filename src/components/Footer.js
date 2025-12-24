@@ -19,7 +19,7 @@ const Footer = () => {
   const socialLinks = [
     { name: 'GitHub', icon: 'fab fa-github', url: 'https://github.com/Manoj4689' },
     { name: 'LinkedIn', icon: 'fab fa-linkedin', url: 'https://linkedin.com/in/manojkumareede' },
-    { name: 'Email', icon: 'fas fa-envelope', url: 'mailto:manojkumar.ede@gmail.com' }
+    { name: 'Email', icon: 'fas fa-envelope', url: 'mailto:manojkumareede@gmail.com' }
   ];
 
   const scrollToSection = (link) => {
@@ -85,7 +85,7 @@ const Footer = () => {
               <h4>Get In Touch</h4>
               <div className="contact-item">
                 <i className="fas fa-envelope"></i>
-                <a href="mailto:manojkumar.ede@gmail.com">manojkumar.ede@gmail.com</a>
+                <a href="mailto:manojkumareede@gmail.com">manojkumareede@gmail.com</a>
               </div>
               <div className="contact-item">
                 <i className="fas fa-map-marker-alt"></i>

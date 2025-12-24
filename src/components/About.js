@@ -6,6 +6,7 @@ const About = () => {
     { name: 'Java', icon: 'fab fa-java', color: '#f89820' },
     { name: 'Python', icon: 'fab fa-python', color: '#3776ab' },
     { name: 'JavaScript', icon: 'fab fa-js-square', color: '#f7df1e' },
+    { name: 'Swift', icon: 'fab fa-swift', color: '#FA7343' },
     { name: 'React', icon: 'fab fa-react', color: '#61dafb' },
     { name: 'C++', icon: 'fas fa-code', color: '#00599c' },
     { name: 'Azure', icon: 'fab fa-microsoft', color: '#0078d4' },
@@ -21,9 +22,7 @@ const About = () => {
   ];
 
   const achievements = [
-    { number: '1.5+', label: 'Years of Experience' },
-    { number: '300K+', label: 'Monthly Transactions' },
-    { number: '$3M', label: 'Contract Value' }
+    { number: '1.5+', label: 'Years of Experience' }
   ];
 
   const codingPlatforms = [
@@ -62,8 +61,8 @@ const About = () => {
                 IIT Roorkee, I bring both theoretical knowledge and practical experience to every project.
               </p>
               <p>
-                I have led end-to-end development of innovative solutions like REST APIs, GenAI 
-                Assistants, and Dynamic Demand Forecasting Engines. My work has enabled 300K+ monthly 
+                I have led end-to-end development of innovative solutions like Distributed Systems, GenAI 
+                Applications, and Demand Forecasting Engines. My work has enabled 300K+ monthly 
                 transactions and contributed to multi-million dollar contracts.
               </p>
               <p>
@@ -113,65 +112,63 @@ const About = () => {
           </div>
         </div>
         
-        <div className="achievements">
-          <div className="achievements-grid">
-            {achievements.map((achievement, index) => (
-              <div key={achievement.label} className="achievement-item fade-in" style={{animationDelay: `${index * 0.2}s`}}>
-                <div className="achievement-number gradient-text">{achievement.number}</div>
-                <div className="achievement-label">{achievement.label}</div>
-              </div>
-            ))}
+        <div className="achievements-platforms-wrapper">
+          <div className="achievements">
+            <div className="achievements-grid">
+              {achievements.map((achievement, index) => (
+                <div key={achievement.label} className="achievement-item fade-in" style={{animationDelay: `${index * 0.2}s`}}>
+                  <div className="achievement-number gradient-text">{achievement.number}</div>
+                  <div className="achievement-label">{achievement.label}</div>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
 
-        <div className="coding-platforms">
-          <h3 className="platforms-title">
-            <i className="fas fa-trophy"></i>
-            Online Coding Platforms
-          </h3>
-          <div className="platforms-grid">
-            {codingPlatforms.map((platform, index) => (
-              <a 
-                key={platform.name}
-                href={platform.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="platform-card fade-in"
-                style={{animationDelay: `${index * 0.2}s`}}
-              >
-                <div className="platform-logo">
-                  <img 
-                    src={platform.logo} 
-                    alt={`${platform.name} logo`}
-                    onError={(e) => {
-                      e.target.style.display = 'none';
-                      e.target.nextElementSibling.style.display = 'flex';
-                    }}
-                  />
-                  <div className="logo-fallback" style={{display: 'none'}}>
-                    <i className="fas fa-code"></i>
-                  </div>
-                </div>
-                <div className="platform-info">
-                  <h4 className="platform-name">{platform.name}</h4>
-                  <div className="platform-stats">
-                    <div className="stat">
-                      <span className="stat-label">Max Rating</span>
-                      <span className="stat-value" style={{color: platform.color}}>
-                        {platform.rating}
-                      </span>
-                    </div>
-                    <div className="stat">
-                      <span className="stat-label">Rank</span>
-                      <span className="stat-value">{platform.rank}</span>
+          <div className="coding-platforms">
+            <div className="platforms-grid">
+              {codingPlatforms.map((platform, index) => (
+                <a 
+                  key={platform.name}
+                  href={platform.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="platform-card fade-in"
+                  style={{animationDelay: `${index * 0.2}s`}}
+                >
+                  <div className="platform-logo">
+                    <img 
+                      src={platform.logo} 
+                      alt={`${platform.name} logo`}
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                        e.target.nextElementSibling.style.display = 'flex';
+                      }}
+                    />
+                    <div className="logo-fallback" style={{display: 'none'}}>
+                      <i className="fas fa-code"></i>
                     </div>
                   </div>
-                </div>
-                <div className="platform-link">
-                  <i className="fas fa-external-link-alt"></i>
-                </div>
-              </a>
-            ))}
+                  <div className="platform-info">
+                    <h4 className="platform-name">{platform.name}</h4>
+                    <div className="platform-stats">
+                      <div className="stat">
+                        <span className="stat-label">Max Rating</span>
+                        <span className="stat-value" style={{color: platform.color}}>
+                          {platform.rating}
+                        </span>
+                      </div>
+                      <div className="stat">
+                        <span className="stat-label">Rank</span>
+                        <span className="stat-value">{platform.rank}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="platform-link">
+                    <i className="fas fa-external-link-alt"></i>
+                  </div>
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </div>

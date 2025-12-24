@@ -164,8 +164,8 @@ const Contact = () => {
     {
       icon: 'fas fa-envelope',
       label: 'Email',
-      value: 'manojkumar.ede@gmail.com',
-      link: 'mailto:manojkumar.ede@gmail.com'
+      value: 'manojkumareede@gmail.com',
+      link: 'mailto:manojkumareede@gmail.com'
     },
     {
       icon: 'fas fa-phone',
@@ -218,14 +218,6 @@ const Contact = () => {
 
         <div className="contact-content">
           <div className="contact-info fade-in">
-            <div className="contact-intro">
-              <h3>Let's Connect</h3>
-              <p>
-                I'm always interested in discussing new opportunities, career prospects, 
-                and exciting roles in technology, AI, and software development. Whether you're 
-                a recruiter, hiring manager, or just want to network, I'd love to hear from you!
-              </p>
-            </div>
 
             <div className="contact-methods">
               {contactInfo.map((info, index) => (
@@ -356,30 +348,6 @@ const Contact = () => {
           </div>
         </div>
 
-        <div className="contact-cta">
-          <div className="cta-content">
-            <h3>Ready to discuss opportunities?</h3>
-            <p>Whether it's a full-time role, consulting opportunity, or networking - let's talk!</p>
-            <div className="cta-buttons">
-              <a 
-                href="mailto:manojkumar.ede@gmail.com" 
-                className="btn-primary"
-                onClick={() => trackButtonClick('Email Me', 'Contact CTA')}
-              >
-                <i className="fas fa-envelope"></i>
-                Email Me
-              </a>
-              <a 
-                href="tel:+918688640213" 
-                className="btn-secondary"
-                onClick={() => trackButtonClick('Call Me', 'Contact CTA')}
-              >
-                <i className="fas fa-phone"></i>
-                Call Me
-              </a>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
