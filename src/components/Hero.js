@@ -7,6 +7,7 @@ const Hero = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [cursorPosition, setCursorPosition] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
   const textRef = useRef(null);
   
   const roles = [
@@ -14,6 +15,17 @@ const Hero = () => {
     'Data Scientist',
     'Research Intern'
   ];
+
+  // Detect mobile viewport
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     const currentRole = roles[currentIndex];
@@ -37,34 +49,39 @@ const Hero = () => {
     return () => clearTimeout(timeout);
   }, [displayText, currentIndex, isDeleting, roles]);
 
-  // Update cursor position whenever displayText changes
+  // Update cursor position whenever displayText changes (only for desktop)
   useEffect(() => {
-    if (textRef.current && displayText) {
-      // Create a temporary span to measure the exact text width
-      const tempSpan = document.createElement('span');
-      tempSpan.style.visibility = 'hidden';
-      tempSpan.style.position = 'absolute';
-      tempSpan.style.whiteSpace = 'nowrap';
-      tempSpan.textContent = displayText;
+    if (!isMobile && textRef.current && displayText) {
+      // Use requestAnimationFrame for smoother updates
+      const updateCursor = () => {
+        // Create a temporary span to measure the exact text width
+        const tempSpan = document.createElement('span');
+        tempSpan.style.visibility = 'hidden';
+        tempSpan.style.position = 'absolute';
+        tempSpan.style.whiteSpace = 'nowrap';
+        tempSpan.textContent = displayText;
+        
+        // Copy all relevant styles from the original element
+        const computedStyle = window.getComputedStyle(textRef.current);
+        tempSpan.style.font = computedStyle.font;
+        tempSpan.style.fontSize = computedStyle.fontSize;
+        tempSpan.style.fontFamily = computedStyle.fontFamily;
+        tempSpan.style.fontWeight = computedStyle.fontWeight;
+        tempSpan.style.letterSpacing = computedStyle.letterSpacing;
+        
+        document.body.appendChild(tempSpan);
+        const textWidth = tempSpan.offsetWidth;
+        document.body.removeChild(tempSpan);
+        
+        // Add a small offset for better visual positioning
+        setCursorPosition(textWidth + 2);
+      };
       
-      // Copy all relevant styles from the original element
-      const computedStyle = window.getComputedStyle(textRef.current);
-      tempSpan.style.font = computedStyle.font;
-      tempSpan.style.fontSize = computedStyle.fontSize;
-      tempSpan.style.fontFamily = computedStyle.fontFamily;
-      tempSpan.style.fontWeight = computedStyle.fontWeight;
-      tempSpan.style.letterSpacing = computedStyle.letterSpacing;
-      
-      document.body.appendChild(tempSpan);
-      const textWidth = tempSpan.offsetWidth;
-      document.body.removeChild(tempSpan);
-      
-      // Add a small offset for better visual positioning
-      setCursorPosition(textWidth + 2);
+      requestAnimationFrame(updateCursor);
     } else {
       setCursorPosition(0);
     }
-  }, [displayText]);
+  }, [displayText, isMobile]);
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -76,6 +93,11 @@ const Hero = () => {
   const handleViewWorkClick = () => {
     trackButtonClick('View My Work', 'Hero');
     scrollToSection('projects');
+  };
+
+  const handleGetInTouchClick = () => {
+    trackButtonClick('Get in Touch', 'Hero');
+    scrollToSection('contact');
   };
 
   const handleSocialClick = (platform, url) => {
@@ -98,7 +120,10 @@ const Hero = () => {
               I'm a{' '}
               <span className="typing-container">
                 <span ref={textRef} className="typing-text gradient-text">{displayText}</span>
-                <span className="cursor" style={{ left: `${cursorPosition}px` }}>|</span>
+                <span 
+                  className="cursor" 
+                  style={isMobile ? {} : { left: `${cursorPosition}px` }}
+                >|</span>
               </span>
             </h2>
             <p className="hero-description">
@@ -113,6 +138,13 @@ const Hero = () => {
               >
                 <i className="fas fa-code"></i>
                 View My Work
+              </button>
+              <button 
+                onClick={handleGetInTouchClick}
+                className="btn-secondary"
+              >
+                <i className="fas fa-envelope"></i>
+                Get in Touch
               </button>
             </div>
           </div>

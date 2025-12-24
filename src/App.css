@@ -18,6 +18,43 @@
   --shadow-light: rgba(0, 0, 0, 0.1);
   --shadow-medium: rgba(0, 0, 0, 0.15);
   --shadow-heavy: rgba(0, 0, 0, 0.25);
+  
+  /* Dynamic viewport-based sizing */
+  --viewport-width: 100vw;
+  --viewport-height: 100vh;
+  --viewport-min: min(100vw, 100vh);
+  --viewport-max: max(100vw, 100vh);
+  
+  /* Base sizes (for Mac desktop - 1440px width typical) */
+  --base-font-size: clamp(14px, 1vw, 16px);
+  --base-spacing-unit: clamp(0.5rem, 0.5vw, 1rem);
+  
+  /* Dynamic font sizes */
+  --font-scale: clamp(0.875, 100vw / 1440, 1);
+  --font-xs: clamp(0.75rem, 0.8vw, 0.85rem);
+  --font-sm: clamp(0.85rem, 0.9vw, 0.95rem);
+  --font-base: clamp(1rem, 1vw, 1rem);
+  --font-lg: clamp(1.1rem, 1.2vw, 1.2rem);
+  --font-xl: clamp(1.3rem, 1.5vw, 1.5rem);
+  --font-2xl: clamp(1.5rem, 2vw, 2rem);
+  --font-3xl: clamp(2rem, 2.5vw, 2.5rem);
+  --font-4xl: clamp(2.5rem, 3vw, 2.75rem);
+  --font-5xl: clamp(2.75rem, 3.5vw, 3rem);
+  
+  /* Dynamic spacing */
+  --spacing-xs: clamp(0.25rem, 0.3vw, 0.5rem);
+  --spacing-sm: clamp(0.5rem, 0.6vw, 1rem);
+  --spacing-md: clamp(1rem, 1.2vw, 1.5rem);
+  --spacing-lg: clamp(1.5rem, 2vw, 2rem);
+  --spacing-xl: clamp(2rem, 2.5vw, 3rem);
+  --spacing-2xl: clamp(3rem, 3.5vw, 5rem);
+  
+  /* Dynamic container */
+  --container-max-width: min(1200px, 90vw);
+  --container-padding: clamp(0.5rem, 1vw, 1rem);
+  
+  /* Dynamic section padding */
+  --section-padding-y: clamp(2rem, 5vh, 5rem);
 }
 
 /* Dark mode variables */
@@ -34,6 +71,43 @@
   --shadow-light: rgba(0, 0, 0, 0.3);
   --shadow-medium: rgba(0, 0, 0, 0.4);
   --shadow-heavy: rgba(0, 0, 0, 0.6);
+  
+  /* Dynamic viewport-based sizing (same as light mode) */
+  --viewport-width: 100vw;
+  --viewport-height: 100vh;
+  --viewport-min: min(100vw, 100vh);
+  --viewport-max: max(100vw, 100vh);
+  
+  /* Base sizes */
+  --base-font-size: clamp(14px, 1vw, 16px);
+  --base-spacing-unit: clamp(0.5rem, 0.5vw, 1rem);
+  
+  /* Dynamic font sizes */
+  --font-scale: clamp(0.875, 100vw / 1440, 1);
+  --font-xs: clamp(0.75rem, 0.8vw, 0.85rem);
+  --font-sm: clamp(0.85rem, 0.9vw, 0.95rem);
+  --font-base: clamp(1rem, 1vw, 1rem);
+  --font-lg: clamp(1.1rem, 1.2vw, 1.2rem);
+  --font-xl: clamp(1.3rem, 1.5vw, 1.5rem);
+  --font-2xl: clamp(1.5rem, 2vw, 2rem);
+  --font-3xl: clamp(2rem, 2.5vw, 2.5rem);
+  --font-4xl: clamp(2.5rem, 3vw, 2.75rem);
+  --font-5xl: clamp(2.75rem, 3.5vw, 3rem);
+  
+  /* Dynamic spacing */
+  --spacing-xs: clamp(0.25rem, 0.3vw, 0.5rem);
+  --spacing-sm: clamp(0.5rem, 0.6vw, 1rem);
+  --spacing-md: clamp(1rem, 1.2vw, 1.5rem);
+  --spacing-lg: clamp(1.5rem, 2vw, 2rem);
+  --spacing-xl: clamp(2rem, 2.5vw, 3rem);
+  --spacing-2xl: clamp(3rem, 3.5vw, 5rem);
+  
+  /* Dynamic container */
+  --container-max-width: min(1200px, 90vw);
+  --container-padding: clamp(0.5rem, 1vw, 1rem);
+  
+  /* Dynamic section padding */
+  --section-padding-y: clamp(2rem, 5vh, 5rem);
 }
 
 /* Dark mode body styles */
@@ -44,21 +118,21 @@ body.dark-mode {
 
 /* Common styles */
 .container {
-  max-width: 1200px;
+  max-width: var(--container-max-width);
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 var(--container-padding);
 }
 
 .section {
-  padding: 5rem 0;
+  padding: var(--section-padding-y) 0;
   position: relative;
 }
 
 .section-title {
-  font-size: 2.75rem;
+  font-size: var(--font-4xl);
   font-weight: 800;
   text-align: center;
-  margin-bottom: 3.5rem;
+  margin-bottom: clamp(2rem, 3.5vh, 3.5rem);
   color: var(--text-primary);
   position: relative;
   letter-spacing: -0.02em;
@@ -67,11 +141,11 @@ body.dark-mode {
 .section-title::after {
   content: '';
   position: absolute;
-  bottom: -15px;
+  bottom: clamp(-10px, -1vh, -15px);
   left: 50%;
   transform: translateX(-50%);
-  width: 80px;
-  height: 5px;
+  width: clamp(60px, 5.5vw, 80px);
+  height: clamp(3px, 0.35vh, 5px);
   background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
   border-radius: 3px;
   box-shadow: 0 2px 10px rgba(102, 126, 234, 0.3);
@@ -88,16 +162,16 @@ body.dark-mode {
   background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
   color: white;
   border: none;
-  padding: 0.85rem 2.2rem;
-  border-radius: 50px;
+  padding: clamp(0.7rem, 0.85vw, 0.85rem) clamp(1.8rem, 2.2vw, 2.2rem);
+  border-radius: clamp(40px, 3.5vw, 50px);
   font-weight: 700;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: clamp(0.5rem, 0.6vw, 0.6rem);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
-  font-size: 1rem;
+  font-size: var(--font-base);
   position: relative;
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
@@ -117,8 +191,8 @@ body.dark-mode {
 }
 
 .btn-primary:hover::before {
-  width: 300px;
-  height: 300px;
+  width: clamp(250px, 20vw, 300px);
+  height: clamp(250px, 20vw, 300px);
 }
 
 .btn-primary:hover {
@@ -129,17 +203,17 @@ body.dark-mode {
 .btn-secondary {
   background: transparent;
   color: var(--accent-primary);
-  border: 2px solid var(--accent-primary);
-  padding: 0.85rem 2.2rem;
-  border-radius: 50px;
+  border: clamp(1.5px, 0.14vw, 2px) solid var(--accent-primary);
+  padding: clamp(0.7rem, 0.85vw, 0.85rem) clamp(1.8rem, 2.2vw, 2.2rem);
+  border-radius: clamp(40px, 3.5vw, 50px);
   font-weight: 700;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: clamp(0.5rem, 0.6vw, 0.6rem);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
-  font-size: 1rem;
+  font-size: var(--font-base);
   position: relative;
   overflow: hidden;
 }
@@ -169,10 +243,10 @@ body.dark-mode {
 
 .card {
   background: var(--bg-primary);
-  border-radius: 20px;
-  padding: 2.5rem;
-  box-shadow: 0 8px 30px var(--shadow-light);
-  border: 1px solid var(--border-color);
+  border-radius: clamp(16px, 1.4vw, 20px);
+  padding: clamp(1.5rem, 2.5vw, 2.5rem);
+  box-shadow: 0 clamp(6px, 0.6vw, 8px) clamp(20px, 2vw, 30px) var(--shadow-light);
+  border: clamp(0.8px, 0.07vw, 1px) solid var(--border-color);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   backdrop-filter: blur(10px);
   position: relative;
@@ -185,7 +259,7 @@ body.dark-mode {
   top: 0;
   left: 0;
   right: 0;
-  height: 3px;
+  height: clamp(2px, 0.2vh, 3px);
   background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
   transform: scaleX(0);
   transition: transform 0.4s ease;
@@ -196,14 +270,14 @@ body.dark-mode {
 }
 
 .card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 50px var(--shadow-medium);
+  transform: translateY(clamp(-6px, -0.5vh, -8px));
+  box-shadow: 0 clamp(12px, 1vw, 15px) clamp(40px, 3.5vw, 50px) var(--shadow-medium);
   border-color: var(--accent-primary);
 }
 
 .fade-in {
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(clamp(20px, 2vh, 30px));
   animation: fadeIn 0.6s ease forwards;
 }
 
@@ -216,7 +290,7 @@ body.dark-mode {
 
 .slide-in-left {
   opacity: 0;
-  transform: translateX(-50px);
+  transform: translateX(clamp(-30px, -3.5vw, -50px));
   animation: slideInLeft 0.6s ease forwards;
 }
 
@@ -229,7 +303,7 @@ body.dark-mode {
 
 .slide-in-right {
   opacity: 0;
-  transform: translateX(50px);
+  transform: translateX(clamp(30px, 3.5vw, 50px));
   animation: slideInRight 0.6s ease forwards;
 }
 
@@ -254,7 +328,7 @@ body.dark-mode {
   }
   
   .section-title {
-    font-size: 2rem;
+    font-size: var(--font-3xl);
     word-wrap: break-word;
     overflow-wrap: break-word;
     hyphens: auto;
@@ -262,16 +336,16 @@ body.dark-mode {
 
   .btn-primary,
   .btn-secondary {
-    padding: 0.6rem 1.5rem;
-    font-size: 0.9rem;
+    padding: clamp(0.5rem, 0.6vw, 0.6rem) clamp(1.2rem, 1.5vw, 1.5rem);
+    font-size: var(--font-sm);
     word-wrap: break-word;
     overflow-wrap: break-word;
     text-align: center;
   }
 
   .card {
-    padding: 1.5rem;
-    margin: 0 0.5rem;
+    padding: var(--spacing-lg);
+    margin: 0 var(--spacing-sm);
     word-wrap: break-word;
     overflow-wrap: break-word;
   }
@@ -311,22 +385,22 @@ body.dark-mode {
   }
   
   .section {
-    padding: 2rem 0;
+    padding: var(--spacing-lg) 0;
   }
   
   .section-title {
-    font-size: 1.8rem;
+    font-size: var(--font-2xl);
   }
 
   .btn-primary,
   .btn-secondary {
-    padding: 0.5rem 1rem;
-    font-size: 0.85rem;
+    padding: clamp(0.4rem, 0.5vw, 0.5rem) clamp(0.8rem, 1vw, 1rem);
+    font-size: var(--font-xs);
   }
 
   .card {
-    padding: 1rem;
-    margin: 0 0.25rem;
+    padding: var(--spacing-md);
+    margin: 0 var(--spacing-xs);
   }
 
   /* Ensure proper spacing on very small screens */

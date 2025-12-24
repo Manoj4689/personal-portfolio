@@ -454,9 +454,13 @@
     overflow-x: hidden;
   }
 
+  .certifications .container {
+    padding: 0 1rem;
+  }
+
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
+    gap: 1rem;
   }
 
   .stat-card {
@@ -464,12 +468,19 @@
   }
 
   .stat-value {
-    font-size: 2rem;
+    font-size: 1.8rem;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+    padding: 0 0.5rem;
+    margin-bottom: 2rem;
   }
 
   .certifications-timeline-card {
-    padding: 2rem;
-    margin: 0 0.5rem;
+    padding: 1.5rem;
+    margin: 0;
+    width: 100%;
   }
 
   .timeline-header h3 {
@@ -487,8 +498,9 @@
   }
 
   .certification-item {
-    padding: 1.5rem;
-    margin: 0 0.5rem;
+    padding: 1.2rem;
+    margin: 0;
+    width: 100%;
     word-wrap: break-word;
     overflow-wrap: break-word;
   }
@@ -555,8 +567,9 @@
   }
 
   .learning-journey {
-    padding: 2rem;
-    margin: 0 0.5rem;
+    padding: 1.5rem;
+    margin: 0;
+    width: 100%;
   }
 
   .journey-content {
@@ -598,18 +611,23 @@
 }
 
 @media (max-width: 480px) {
+  .certifications .container {
+    padding: 0 0.5rem;
+  }
+
   .stats-grid {
     grid-template-columns: 1fr;
+    gap: 1rem;
   }
 
   .certifications-timeline-card {
-    padding: 1.5rem;
-    margin: 0 0.25rem;
+    padding: 1rem;
+    margin: 0;
   }
 
   .certification-item {
     padding: 1rem;
-    margin: 0 0.25rem;
+    margin: 0;
   }
 
   .cert-logo {
@@ -627,8 +645,8 @@
   }
 
   .learning-journey {
-    padding: 1.5rem;
-    margin: 0 0.25rem;
+    padding: 1.2rem;
+    margin: 0;
   }
 
   .cta-content {

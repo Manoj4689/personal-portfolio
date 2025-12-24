@@ -320,9 +320,20 @@
     overflow-x: hidden;
   }
 
+  .education .container {
+    padding: 0 1rem;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+    padding: 0 0.5rem;
+    margin-bottom: 2rem;
+  }
+
   .education-timeline-card {
-    padding: 2rem;
-    margin: 0 0.5rem;
+    padding: 1.5rem;
+    margin: 0;
+    width: 100%;
   }
 
 
@@ -423,9 +434,13 @@
 }
 
 @media (max-width: 480px) {
+  .education .container {
+    padding: 0 0.5rem;
+  }
+
   .education-timeline-card {
-    padding: 1.5rem;
-    margin: 0 0.25rem;
+    padding: 1rem;
+    margin: 0;
   }
 
   .timeline-connector {

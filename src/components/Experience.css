@@ -355,6 +355,14 @@
     overflow-x: hidden;
   }
 
+  .experience .container {
+    padding: 0 1rem;
+  }
+
+  .timeline {
+    padding: 1rem 0;
+  }
+
   .timeline::before {
     left: 30px;
   }
@@ -382,8 +390,9 @@
   }
 
   .experience-card {
-    padding: 2rem;
-    margin: 0 0.5rem;
+    padding: 1.5rem;
+    margin: 0;
+    width: 100%;
     word-wrap: break-word;
     overflow-wrap: break-word;
   }
@@ -481,6 +490,10 @@
 }
 
 @media (max-width: 480px) {
+  .experience .container {
+    padding: 0 0.5rem;
+  }
+
   .timeline-content {
     margin-left: 50px !important;
   }
@@ -494,8 +507,8 @@
   }
 
   .experience-card {
-    padding: 1.5rem;
-    margin: 0 0.25rem;
+    padding: 1.2rem;
+    margin: 0;
   }
 
   .job-title {

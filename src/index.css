@@ -6,6 +6,15 @@
 
 html {
   scroll-behavior: smooth;
+  /* Dynamic base font size - scales with viewport but maintains Mac desktop size */
+  font-size: clamp(14px, 1vw, 16px);
+}
+
+/* Ensure smooth scaling for all viewport sizes */
+@media (min-width: 1440px) {
+  html {
+    font-size: 16px; /* Exact size for Mac desktop */
+  }
 }
 
 body {
