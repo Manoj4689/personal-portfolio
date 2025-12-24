@@ -113,62 +113,58 @@ const About = () => {
         </div>
         
         <div className="achievements-platforms-wrapper">
-          <div className="achievements">
-            <div className="achievements-grid">
-              {achievements.map((achievement, index) => (
-                <div key={achievement.label} className="achievement-item fade-in" style={{animationDelay: `${index * 0.2}s`}}>
-                  <div className="achievement-number gradient-text">{achievement.number}</div>
-                  <div className="achievement-label">{achievement.label}</div>
-                </div>
-              ))}
-            </div>
-          </div>
+          <div className="all-cards-container">
+            {/* Experience Achievement Card */}
+            {achievements.map((achievement, index) => (
+              <div key={achievement.label} className="achievement-item fade-in" style={{animationDelay: `${index * 0.2}s`}}>
+                <div className="achievement-number gradient-text">{achievement.number}</div>
+                <div className="achievement-label">{achievement.label}</div>
+              </div>
+            ))}
 
-          <div className="coding-platforms">
-            <div className="platforms-grid">
-              {codingPlatforms.map((platform, index) => (
-                <a 
-                  key={platform.name}
-                  href={platform.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="platform-card fade-in"
-                  style={{animationDelay: `${index * 0.2}s`}}
-                >
-                  <div className="platform-logo">
-                    <img 
-                      src={platform.logo} 
-                      alt={`${platform.name} logo`}
-                      onError={(e) => {
-                        e.target.style.display = 'none';
-                        e.target.nextElementSibling.style.display = 'flex';
-                      }}
-                    />
-                    <div className="logo-fallback" style={{display: 'none'}}>
-                      <i className="fas fa-code"></i>
+            {/* Coding Platform Cards */}
+            {codingPlatforms.map((platform, index) => (
+              <a 
+                key={platform.name}
+                href={platform.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="platform-card fade-in"
+                style={{animationDelay: `${(index + achievements.length) * 0.2}s`}}
+              >
+                <div className="platform-logo">
+                  <img 
+                    src={platform.logo} 
+                    alt={`${platform.name} logo`}
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      e.target.nextElementSibling.style.display = 'flex';
+                    }}
+                  />
+                  <div className="logo-fallback" style={{display: 'none'}}>
+                    <i className="fas fa-code"></i>
+                  </div>
+                </div>
+                <div className="platform-info">
+                  <h4 className="platform-name">{platform.name}</h4>
+                  <div className="platform-stats">
+                    <div className="stat">
+                      <span className="stat-label">Max Rating</span>
+                      <span className="stat-value" style={{color: platform.color}}>
+                        {platform.rating}
+                      </span>
+                    </div>
+                    <div className="stat">
+                      <span className="stat-label">Rank</span>
+                      <span className="stat-value">{platform.rank}</span>
                     </div>
                   </div>
-                  <div className="platform-info">
-                    <h4 className="platform-name">{platform.name}</h4>
-                    <div className="platform-stats">
-                      <div className="stat">
-                        <span className="stat-label">Max Rating</span>
-                        <span className="stat-value" style={{color: platform.color}}>
-                          {platform.rating}
-                        </span>
-                      </div>
-                      <div className="stat">
-                        <span className="stat-label">Rank</span>
-                        <span className="stat-value">{platform.rank}</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="platform-link">
-                    <i className="fas fa-external-link-alt"></i>
-                  </div>
-                </a>
-              ))}
-            </div>
+                </div>
+                <div className="platform-link">
+                  <i className="fas fa-external-link-alt"></i>
+                </div>
+              </a>
+            ))}
           </div>
         </div>
       </div>
