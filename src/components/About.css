@@ -360,11 +360,12 @@
   }
 
   .all-cards-container {
+    display: grid;
     grid-template-columns: 1fr;
     gap: 1.5rem;
-    align-items: start;
-    align-content: start;
-    align-self: start;
+    align-items: stretch;
+    width: 100%;
+    justify-items: stretch;
   }
 
   .achievements {
@@ -380,9 +381,15 @@
 
   .achievement-item {
     height: auto !important;
-    min-height: auto !important;
+    min-height: 180px !important;
     width: 100%;
-    align-self: start;
+    padding: 2rem 1.5rem;
+    margin: 0;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   .achievement-number {
@@ -424,14 +431,18 @@
   }
 
   .platform-card {
-    padding: 1.5rem;
+    padding: 2rem 1.5rem;
     margin: 0;
     word-wrap: break-word;
     overflow-wrap: break-word;
     width: 100%;
     height: auto !important;
-    min-height: auto !important;
-    align-self: start;
+    min-height: 180px !important;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   .platform-name {
@@ -498,19 +509,33 @@
 
   .all-cards-container {
     gap: 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: stretch;
+    width: 100%;
+    justify-items: stretch;
   }
 
   .achievement-item {
-    padding: 1.2rem;
+    padding: 1.5rem;
     height: auto !important;
-    min-height: auto !important;
-    align-self: start;
+    min-height: 160px !important;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   .platform-card {
+    padding: 1.5rem;
     height: auto !important;
-    min-height: auto !important;
-    align-self: start;
+    min-height: 160px !important;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   .achievements-grid {

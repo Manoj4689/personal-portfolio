@@ -549,13 +549,25 @@
     hyphens: auto;
   }
 
+  .skills-section {
+    text-align: left;
+  }
+
+  .skills-section h6 {
+    text-align: left;
+  }
+
   .skills-tags {
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   .credential-section {
-    text-align: center;
-    align-items: center;
+    text-align: right;
+    align-items: flex-end;
+  }
+
+  .credential-section h6 {
+    text-align: right;
   }
 
   .credential-id {
@@ -563,7 +575,7 @@
     overflow-wrap: break-word;
     white-space: normal;
     max-width: 100%;
-    text-align: center;
+    text-align: right;
   }
 
   .learning-journey {
