@@ -7,7 +7,7 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: "FinGen - A Personal Investment Assistant",
+      title: "FinGen - AI Powered Investment Assistant",
       description: "Designed and built a full-stack financial analysis platform for Indian markets, delivering AI-driven stock insights, sentiment analysis, and portfolio tracking.",
       image: "/personal-portfolio/projects/FinGen.png",
       technologies: ["Python", "AI Agents", "Web Scraping", "Sentiment Analysis", "Transformers", "Supabase", "Github Actions"],
