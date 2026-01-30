@@ -12,7 +12,9 @@ import About from './components/About';
 import Experience from './components/Experience';
 import Education from './components/Education';
 import Certifications from './components/Certifications';
+import Publications from './components/Publications';
 import Projects from './components/Projects';
+import OpenSource from './components/OpenSource';
 import Resume from './components/Resume';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -31,7 +33,9 @@ const ScrollToSection = () => {
       '/experience': 'Experience', 
       '/education': 'Education',
       '/certifications': 'Certifications',
+      '/publications': 'Publications',
       '/projects': 'Projects',
+      '/opensource': 'Open Source',
       '/resume': 'Resume',
       '/contact': 'Contact'
     };
@@ -47,7 +51,9 @@ const ScrollToSection = () => {
       '/experience': 'experience',
       '/education': 'education', 
       '/certifications': 'certifications',
+      '/publications': 'publications',
       '/projects': 'projects',
+      '/opensource': 'opensource',
       '/resume': 'resume',
       '/contact': 'contact'
     };
@@ -76,8 +82,10 @@ const HomePage = () => (
     <About />
     <Experience />
     <Education />
-    <Certifications />
+    <Publications />
+    <OpenSource />
     <Projects />
+    <Certifications />
     <Contact />
   </>
 );
@@ -124,7 +132,9 @@ function App() {
             <Route path="/experience" element={<HomePage />} />
             <Route path="/education" element={<HomePage />} />
             <Route path="/certifications" element={<HomePage />} />
+            <Route path="/publications" element={<HomePage />} />
             <Route path="/projects" element={<HomePage />} />
+            <Route path="/opensource" element={<HomePage />} />
             <Route path="/contact" element={<HomePage />} />
             
             {/* Resume route shows only resume component */}

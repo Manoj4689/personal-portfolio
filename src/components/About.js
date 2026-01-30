@@ -53,7 +53,7 @@ const About = () => {
           <div className="about-text fade-in">
             <div className="text-content">
               <h3 className="about-subtitle">
-                I'm a passionate <span className="gradient-text">Software Engineer</span> with expertise in Full Stack development, AI and Data Science
+                I'm a passionate <span className="gradient-text">Software Engineer</span> with expertise in Full Stack Development, AI, and Data Science
               </h3>
               <p>
                 Currently working as a Member of Technical Staff at Adobe, I specialize in building scalable 

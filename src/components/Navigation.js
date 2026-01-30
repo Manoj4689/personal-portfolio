@@ -32,7 +32,9 @@ const Navigation = ({ darkMode }) => {
       'experience': '/experience',
       'education': '/education',
       'certifications': '/certifications',
+      'publications': '/publications',
       'projects': '/projects',
+      'opensource': '/opensource',
       'contact': '/contact'
     };
     
@@ -48,8 +50,10 @@ const Navigation = ({ darkMode }) => {
     { name: 'About', id: 'about' },
     { name: 'Experience', id: 'experience' },
     { name: 'Education', id: 'education' },
-    { name: 'Certifications', id: 'certifications' },
+    { name: 'Publications', id: 'publications' },
+    { name: 'Open Source', id: 'opensource' },
     { name: 'Projects', id: 'projects' },
+    { name: 'Certifications', id: 'certifications' },
     { name: 'Contact', id: 'contact' }
   ];
 

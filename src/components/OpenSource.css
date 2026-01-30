@@ -1,0 +1,357 @@
+.opensource {
+  background: var(--bg-secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+.opensource::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: radial-gradient(circle at 30% 70%, rgba(118, 75, 162, 0.03) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+/* Open Source Card */
+.opensource-card {
+  background: var(--bg-primary);
+  border-radius: 20px;
+  padding: 2rem;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 20px 60px var(--shadow-light);
+  position: relative;
+  overflow: hidden;
+}
+
+.opensource-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+}
+
+.opensource-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.opensource-header h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.opensource-header h3 i {
+  color: var(--accent-primary);
+  font-size: 1.8rem;
+}
+
+.opensource-header p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+/* Contributions List */
+.contributions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contribution-item {
+  background: var(--bg-secondary);
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+  display: flex;
+  gap: 1.5rem;
+  position: relative;
+}
+
+.contribution-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px var(--shadow-medium);
+}
+
+.contrib-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #24292e, #586069);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contrib-icon i {
+  font-size: 1.5rem;
+  color: white;
+}
+
+.contrib-content {
+  flex: 1;
+}
+
+.contrib-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.contrib-title-section {
+  flex: 1;
+  min-width: 200px;
+}
+
+.contrib-project {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+  margin-bottom: 0.3rem;
+}
+
+.contrib-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.contrib-meta {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+.contrib-type {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 1px solid var(--border-color);
+}
+
+.contrib-impact {
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.contrib-impact.impact-high {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: white;
+}
+
+.contrib-impact.impact-medium {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: white;
+}
+
+.contrib-impact.impact-low {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+}
+
+.contrib-status {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.contrib-description {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.contrib-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.contrib-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.contrib-tag {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  padding: 0.4rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.contrib-tag:hover {
+  background: var(--accent-primary);
+  color: white;
+  transform: translateY(-1px);
+}
+
+.contrib-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #24292e, #586069);
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.contrib-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(36, 41, 46, 0.4);
+}
+
+.contrib-link i:first-child {
+  font-size: 1.1rem;
+}
+
+.contrib-link i:last-child {
+  font-size: 0.75rem;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .opensource .container {
+    padding: 0 1rem;
+  }
+
+  .opensource-card {
+    padding: 1.5rem;
+  }
+
+  .opensource-header h3 {
+    font-size: 1.4rem;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .contribution-item {
+    flex-direction: column;
+    padding: 1.2rem;
+  }
+
+  .contrib-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .contrib-icon i {
+    font-size: 1.3rem;
+  }
+
+  .contrib-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .contrib-title-section {
+    min-width: auto;
+  }
+
+  .contrib-project {
+    font-size: 1.2rem;
+  }
+
+  .contrib-title {
+    font-size: 1rem;
+  }
+
+  .contrib-meta {
+    width: 100%;
+  }
+
+  .contrib-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .contrib-link {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .opensource .container {
+    padding: 0 0.5rem;
+  }
+
+  .opensource-card {
+    padding: 1rem;
+  }
+
+  .contribution-item {
+    padding: 1rem;
+  }
+
+  .contrib-project {
+    font-size: 1.1rem;
+  }
+
+  .contrib-title {
+    font-size: 0.95rem;
+  }
+
+  .contrib-description {
+    font-size: 0.9rem;
+  }
+
+  .contrib-tags {
+    gap: 0.4rem;
+  }
+
+  .contrib-tag {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  .contrib-link {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+}

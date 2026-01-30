@@ -11,7 +11,7 @@ const Hero = () => {
   const textRef = useRef(null);
   
   const roles = [
-    'Member of Technical Staff',
+    'Member of Technical Staff II',
     'Data Scientist',
     'Research Intern'
   ];
