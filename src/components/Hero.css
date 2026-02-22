@@ -81,11 +81,13 @@
 .cursor {
   position: absolute;
   top: 0;
+  left: 0;
   display: inline-block;
   animation: blink 1s infinite;
   color: var(--accent-primary);
   font-weight: 400;
   transition: left 0.1s ease-out;
+  pointer-events: none;
 }
 
 @keyframes blink {

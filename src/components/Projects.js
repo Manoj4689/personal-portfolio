@@ -18,6 +18,17 @@ const Projects = () => {
     },
     {
       id: 2,
+      title: "CommerceHub - Cloud-Native E-Commerce Platform",
+      description: "Built a cloud-native e-commerce platform with product, cart, order, and secure checkout using OAuth 2.0 and JWT. Implemented a React frontend and Spring Boot backend with Redis caching, PostgreSQL, and unit testing.",
+      image: "/personal-portfolio/projects/CommerceHub.png",
+      technologies: ["Java", "Spring Boot", "ReactJS", "Redis", "PostgreSQL", "Docker", "JUnit"],
+      category: "fullstack",
+      github: "https://github.com/Manoj4689/CommerceHub",
+      live: "https://github.com/Manoj4689/CommerceHub",
+      featured: true
+    },
+    {
+      id: 3,
       title: "A Soft Computing Approach to Find Hardware Reliability",
       description: "Developed a novel model to assess k-to-r out of n hardware system reliability by adapting the Universal Generating Function (UGF) method and Genetic Algorithms for optimization. This research project explored innovative approaches to improve system reliability analysis.",
       image: "/personal-portfolio/projects/Soft_computing.png",
@@ -25,7 +36,7 @@ const Projects = () => {
       category: "research",
       github: "https://github.com/Manoj4689/Genetic-algorithms",
       live: "https://github.com/Manoj4689/Genetic-algorithms",
-      featured: true
+      featured: false
     }
   ];
 

@@ -51,32 +51,19 @@ const Hero = () => {
 
   // Update cursor position whenever displayText changes (only for desktop)
   useEffect(() => {
-    if (!isMobile && textRef.current && displayText) {
-      // Use requestAnimationFrame for smoother updates
+    if (!isMobile && textRef.current) {
       const updateCursor = () => {
-        // Create a temporary span to measure the exact text width
-        const tempSpan = document.createElement('span');
-        tempSpan.style.visibility = 'hidden';
-        tempSpan.style.position = 'absolute';
-        tempSpan.style.whiteSpace = 'nowrap';
-        tempSpan.textContent = displayText;
-        
-        // Copy all relevant styles from the original element
-        const computedStyle = window.getComputedStyle(textRef.current);
-        tempSpan.style.font = computedStyle.font;
-        tempSpan.style.fontSize = computedStyle.fontSize;
-        tempSpan.style.fontFamily = computedStyle.fontFamily;
-        tempSpan.style.fontWeight = computedStyle.fontWeight;
-        tempSpan.style.letterSpacing = computedStyle.letterSpacing;
-        
-        document.body.appendChild(tempSpan);
-        const textWidth = tempSpan.offsetWidth;
-        document.body.removeChild(tempSpan);
-        
-        // Add a small offset for better visual positioning
-        setCursorPosition(textWidth + 2);
+        if (!displayText) {
+          setCursorPosition(0);
+          return;
+        }
+        // Measure the actual rendered text width using Range (matches DOM exactly)
+        const range = document.createRange();
+        range.selectNodeContents(textRef.current);
+        const width = range.getBoundingClientRect().width;
+        range.detach();
+        setCursorPosition(width + 2);
       };
-      
       requestAnimationFrame(updateCursor);
     } else {
       setCursorPosition(0);
