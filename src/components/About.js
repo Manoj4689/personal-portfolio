@@ -22,7 +22,7 @@ const About = () => {
   ];
 
   const achievements = [
-    { number: '2', label: 'Years of Experience' }
+    { number: '~2', label: 'Years of Experience' }
   ];
 
   const codingPlatforms = [
