@@ -140,7 +140,7 @@ const Hero = () => {
             <div className="profile-card">
               <div className="profile-image">
                 <img 
-                  src="/personal-portfolio/about/profile.jpg" 
+                  src="/personal-portfolio/about/profile.png" 
                   alt="Manoj Kumar Eede"
                   className="profile-photo"
                 />

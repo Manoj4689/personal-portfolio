@@ -3,9 +3,9 @@
   "name": "Personal Portfolio",
   "icons": [
     {
-      "src": "about/profile.jpg",
+      "src": "about/profile.png",
       "sizes": "192x192",
-      "type": "image/jpeg"
+      "type": "image/png"
     }
   ],
   "start_url": ".",
