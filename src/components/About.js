@@ -56,14 +56,14 @@ const About = () => {
                 I'm a passionate <span className="gradient-text">Software Engineer</span> with expertise in Full Stack Development, AI, and Data Science
               </h3>
               <p>
-                Currently working as a Member of Technical Staff at Adobe, I specialize in building scalable 
-                systems and AI-powered solutions. With a strong background in Mathematics and Computing from 
+                Currently working as a Member of Technical Staff II at Adobe, I specialize in building scalable 
+                distributed systems and AI-powered solutions. With a strong background in Mathematics and Computing from 
                 IIT Roorkee, I bring both theoretical knowledge and practical experience to every project.
               </p>
               <p>
                 I have led end-to-end development of innovative solutions like Distributed Systems, GenAI 
                 Applications, and Demand Forecasting Engines. My work has enabled 300K+ monthly 
-                transactions and contributed to multi-million dollar contracts.
+                enterprise transactions and contributed to multi-million dollar contracts.
               </p>
               <p>
                 I'm passionate about competitive programming and constantly 
