@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Hero.css';
 import { trackButtonClick } from '../utils/analytics';
 
@@ -6,26 +6,12 @@ const Hero = () => {
   const [displayText, setDisplayText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
-  const [cursorPosition, setCursorPosition] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
-  const textRef = useRef(null);
   
   const roles = [
     'Member of Technical Staff II',
     'Data Scientist',
     'Research Intern'
   ];
-
-  // Detect mobile viewport
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-    
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
 
   useEffect(() => {
     const currentRole = roles[currentIndex];
@@ -48,27 +34,6 @@ const Hero = () => {
 
     return () => clearTimeout(timeout);
   }, [displayText, currentIndex, isDeleting, roles]);
-
-  // Update cursor position whenever displayText changes (only for desktop)
-  useEffect(() => {
-    if (!isMobile && textRef.current) {
-      const updateCursor = () => {
-        if (!displayText) {
-          setCursorPosition(0);
-          return;
-        }
-        // Measure the actual rendered text width using Range (matches DOM exactly)
-        const range = document.createRange();
-        range.selectNodeContents(textRef.current);
-        const width = range.getBoundingClientRect().width;
-        range.detach();
-        setCursorPosition(width + 2);
-      };
-      requestAnimationFrame(updateCursor);
-    } else {
-      setCursorPosition(0);
-    }
-  }, [displayText, isMobile]);
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -106,11 +71,8 @@ const Hero = () => {
             <h2 className="hero-subtitle">
               I'm a{' '}
               <span className="typing-container">
-                <span ref={textRef} className="typing-text gradient-text">{displayText}</span>
-                <span 
-                  className="cursor" 
-                  style={isMobile ? {} : { left: `${cursorPosition}px` }}
-                >|</span>
+                <span className="typing-text gradient-text">{displayText}</span>
+                <span className="cursor">|</span>
               </span>
             </h2>
             <p className="hero-description">

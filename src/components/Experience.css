@@ -198,6 +198,7 @@
   transform: translateY(-50%);
   z-index: 1;
   transition: all 0.3s ease;
+  box-sizing: border-box;
 }
 
 .title-item.current::before {

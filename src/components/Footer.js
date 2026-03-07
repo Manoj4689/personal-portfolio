@@ -46,7 +46,7 @@ const Footer = () => {
             <div className="footer-brand">
               <h3 className="footer-logo gradient-text">Manoj Kumar Eede</h3>
               <p className="footer-description">
-                Member of Technical Staff at Adobe, passionate about building 
+                Member of Technical Staff II at Adobe, passionate about building 
                 scalable AI-powered solutions and full-stack applications.
               </p>
               <div className="footer-social">
